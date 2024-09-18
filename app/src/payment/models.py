@@ -1,6 +1,14 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 
+class PaymentMethod(models.Model):
+    card_number = models.CharField(max_length=16)
+    expiry_date = models.CharField(max_length=5)
+    cvv = models.CharField(max_length=4)
+    active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f"{self.card_number[-4:]} - Active: {self.active}"
 
 class PaymentLink(models.Model):
     RAKBANK = 'rakbank'
@@ -20,14 +28,6 @@ class PaymentLink(models.Model):
     def __str__(self):
         return self.short_name
 
-class PaymentMethod(models.Model):
-    card_number = models.CharField(max_length=16)
-    expiry_date = models.CharField(max_length=5)
-    cvv = models.CharField(max_length=4)
-    active = models.BooleanField(default=True)
-
-    def __str__(self):
-        return f"{self.card_number[-4:]} - Active: {self.active}"
 
 
 
