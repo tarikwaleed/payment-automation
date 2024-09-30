@@ -4,11 +4,11 @@ from .models import PaymentLink, PaymentMethod, PersonalInfo, PaymentCount, Paym
 
 @admin.register(PaymentLink)
 class PaymentLinkAdmin(admin.ModelAdmin):
-    list_display = ('url', 'website')
+    list_display = ('short_name',)
 
 @admin.register(PaymentMethod)
 class PaymentMethodAdmin(admin.ModelAdmin):
-    list_display = ('card_number', 'expiry_date', 'active')
+    list_display = ('code', 'active')
     list_filter = ('active',)
     search_fields = ('card_number',)
 

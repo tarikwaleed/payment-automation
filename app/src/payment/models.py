@@ -6,17 +6,19 @@ class PaymentMethod(models.Model):
     expiry_date = models.CharField(max_length=5)
     cvv = models.CharField(max_length=4)
     active = models.BooleanField(default=True)
+    code = models.CharField(max_length=10)
 
     def __str__(self):
-        return f"{self.card_number[-4:]} - Active: {self.active}"
+        return f"Code: {self.code}"
 
 class PaymentLink(models.Model):
     RAKBANK = 'rakbank'
+    NETWORK = 'network'
     OTHER = 'other'
     
     WEBSITE_CHOICES = [
         (RAKBANK, 'RakBank'),
-        (OTHER, 'Other'),  # You can add more websites here as needed
+        (NETWORK, 'Network'),
     ]
     
     url = models.URLField(max_length=255)

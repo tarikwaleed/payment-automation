@@ -1,0 +1,142 @@
+
+
+
+
+
+
+
+
+
+
+
+<html>
+
+
+
+
+  
+
+
+
+
+<head>
+<title>Purchase Validation</title>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+
+
+
+<base href="https://secure.iraqegate.iq/3dsAcs2FrontOfficeWeb/" />
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="images/icon.png">
+<link rel="stylesheet" href="resources/bootstrap.min.css">
+<link rel="stylesheet" href="resources/acs.css">
+</head>
+<body onkeydown="return (event.keyCode != 116)">
+	<div class="container" id="app">
+    <div class="center-block">
+        <div class="row">
+            <div class="col-xl-6 col-xs-12 col-md-10 mx-auto">
+            <!-- FORM -->  
+              <form method="post" @submit="isHidden = true" action="/3dsAcs2FrontOfficeWeb/purchaseValidation">            
+                 
+                <!-- PANEL -->   
+                 <div class="card card-default">
+                    <!-- HEADER card -->                  
+                    <div class="card-header">
+                     	 <div>
+                            <img style="height:50px; width:120px; margin-left:5px ; margin-top:0px" class="img-responsive images rounded float-left" src="data:image/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAAWUAAABRCAYAAAAKGbe0AAAACXBIWXMAAAsSAAALEgHS3X78AAAVuklEQVR4nO1dXXAb13W+dyVlEtkxSEnUTJ5I2aReIhHUQzPptFNRz54Ombdm2jHJjpumdmRBkh27alxR+VESO4loqXZcxzZBjZu0dVODyaTTTDoV0GkmmfRBgCXyQRZl4j2WANvjPoU3cxdnwYvF7mJ/zl3cJc43gwGwXAKLe+9+97vnnHsOF0IwAiEufvtXn54WjE0xwYaYHEr2cBLMee28Zcrzwavri9TgBII3dlO7EKLit1/89DwTbJYJNhPj32uMMSJlAsEHRMqE0HjvsSOzQoglxthoglYrUosTCP4gUib0xHtfOiJNE5JM4yhjN4iUCYQAECkTAvHeySNDjLEyYyyP0FKrB6+uN6jFCQR/WNQ2BD/cfQKVkBmpZAKhN4iUCUEoIRJy8+DV9RK1NoEQDCJlgifunjpSYIwdR2wdUskEQggQKRO6cLdgmy2ww9aIlAmEECBSJnhhnjGWQ2yZ2sGV9Sq1NIHQG0TKBC8UkFtliVqZQAgHImVCB+6eOTqVcHOIF8jBRyCEBJEywQ1slbxycIVikwmEsCBSJrRx7+xR6eCbRW4RUskEQgQQKRNUzCI7+OoHixSbTCBEAZEyQcU8cmsQIRMIEaE19wXnXDqNhgJOaQghUEOlHnz4ovy+KWZZjFmcMS6fW685h2PyPbefGxtvPIb6/R9dOdbrNzto7D153ZgwsXtPHh1D3izCKOqCQIiOxKTMOZ9mjE3bRNgio6koS2AuybEFmWe3AbkWJFmVhRBxHETyGq6FPfmhR74vibvGLF5mllXceO3RpEQpTQDne54lGPvo8jH53JS/V8jfLOzfXr6vcL0fjjFslVwbKa5vev2Bcz4PY2a6R6THCSFEGf5nJ1ZjqMFYLwkh+rqqUO7jMeXh1zcVeHbu1aoQwrOvNVyn4/eYBa4JNX7SRpwx3v6NcSqPgAIuaLBBulGDnWClKJ3+4MMXJcEeD6GUFTXtHLcqzOKLG68sxOrMj64ck4P5Xc8/uipw2C87jjmlOtiKVJn3nammpqTvPXl0kwk2al/PllI5xKkm0n4vOt53VBfprDyyMLK83rGLj3NegJ2CYcfMTidlFXXZNkKIVHY+usgNIyVrDUi6iL36ZdvXW4BH5PGTFjjni0mvMRIpc87HgCSxl7lhUIEO7zloH3z44jyzrOWYpNw617JWmcXnb7/0SGTV+tGVY+WONnKRcXeJJNFB1MrfVgVjhfufrGpVIfeeOjrNBLvWJmEcUh4eWW6FwsG4iZPcaJBI2cGqXLXEXCX2BChiqeLmdHw+oAamqxLG7wARWIoRP58aKWOMcQehHX0wA7zbJ0Jm8L3LnPNNWBoEQTZOM+H3SfWwOf74G1Mx/rfoJi6H4Fqkx7bfuEluq+NPM0yw6ofPTWGHqbmBbbpYUQh5Cpa4WNnmdjrkuCuDMkSDJGPOeRlMezoJmUFfL8v7B3gjNuBeL2vY0IQG7DHek5Tl4IDO7G0nTQejQM5VmPW7cOdn5xpInn+5BCmPn/ynaMQsWMm2FYtO7m0RrwcRq6TNuo7nmGBvffjtKWzitNH4spbYZHs1A8RS1mzi2onIYxGzVHCc8xKQcdqCSvb7eRBSkccYkN2SyeNHxxgPJGXlC/uljoMgB+41zvmSz+DFss21iPmJH4Um5r1PXG8IIZdubiL2WPq7SXurm6zhsfzBN/M6iBk9Nnnk9XVnOVYiQo6NfNJMfWDDryLZjJNACqm35OQQdqKB87IwftCv0ZeUFUI2fdl5ClRFB2ne+ekzZXCeYCAXmeRlTTvJtFsBqtibfD3OEwxs/8sfXMx7rg4SAHtbtaOS5w2dzLOEU36rwSDA6laSxSXDSG0GTBphBE7BZJMF0zjGg5RyMUN2wDyE8biB6cnOjxf+ObRyue/09TITrB6oikOQcYe6bqno4gffyKPYGxvP2LHJ2H3stDl2PuZBRaRJExxOZQPUsR/kJHE9yC+kRFqYDi1j3JOUYdljaqd6YcUnzhM7vKgwfuZfwxOiaDn8fIl4K0AVe9mdW585ygTaYMAe+JWR19ccJYStciohztmJmImw5M+SU3U5wAmoO9Q2MTSNcRtdpAwzbZZUTk0I4Tnr3ll9ehPCc7CQi0JkQsgQvgBFzAJUcaCCZqfe/2rea2UQFVocfBo+lwHZDCp6tieQRNacqtIJ6CWcdEcbYUDbNXop5SjB/f1GE3bMBAF7q29oZ5sdXyxYxVcVbwWoYhd5d6nthCq38beTs8gzfVOJeMG2e7MB37IdOAFnlJAdzIEQVBEnDDVt6BjjNjpIGRpHdwwjJmZDBKdjb18dHT/7ZvhZEkwY8DqOKmbCOyIjaSQGeorOkdfWtG0Phx2dK7o+33D4khSYNooZJeQ6bJ5wb44y2sGnG26lnAXjuoPTYXbr3Ck91dBwM4cnRIhZTqiKXa/tE3Lvn5+MRcyNc5NDGibfNLYHLyJsCsoigmzKWXLIq3hBTjb9yk1hMtyknAVbDgPHXpTlLLZanhl/6sehbLr3P1NttJ2Q8VWxK965/TJuf2H3c33k1TXtNxcoqiwJB63IoEOewaQq1XFB11byrKNNyhq8idLBdho6gHs9GGPD8u9w3krIuOJK1Bvzzr+fLSHGLDuIopaLnptCwqti++GQtnL+TPPZyTgOPy2xyWkAcp8spPV9piKDDnkGeT3GSB0HQ1XKWIZrZyaUS5OloA6QM6X8O5wnk7DIgXYMCNq9TJWkekEIMR1zhsVWy6FJ+ZPnaq2NLMlUsQ9pR7MtN/9uUmdscipQiHkQTRkOsmRHlv30OSFEGB/QwEMlZYwQK4npJDOhTPsHBD0EBC2V9CFJ2EKIJMoA23s/Ov70W5EcfpFVcbiNJlHtytgqeXXkB2up5NJVAcQ8NYjOP9jlp3u3ZBNWpdL2ewEeqzFCTCugjqkKTUiopIwRhrKKmUsVCLqMkUD7zr+dwY5ZZlFjliOr4kACb6vu0ca5ySg24h1T8kmOC4hRPwSkMSgbTHStTOrQjsekKIJVqbT9LsJDKt0pMDsu9GjvJjjj465sBxbYNfpSV0wRga2Wj48/Uwq1wnjg2dp2zDLrNCZH2X7dYf6IaMJoPjuJvVOqeeAHa6maLrwA5LwIBODpvwjwa5xAuoxK1O+O8GibFiHbGnbImCTQBWc12ktYgdmxCNd1CNR0RXmcBnVM5cBiAJuUtQVUI0GHquuplie++d+tkCYnSZGqin0cgD6q2Ie4xQzksegFKoyafaCbn4BAY02uMCEWYEJ0HkukjuMDm5TzcbJapYWNNwtaYpYnzv3EN4504hv/NbSt0IVM59lMqIo9bNC91XLz7+3YZOzwKVJCKQIiLjBtyS+Q8808YJOyRMlkYtag7nI94n7t0jsT37429MDi2w3YTJJEFXfnZm4d7qWCsVVy/cAra4Ocj6IfwFTJMpKJYr4NhFrNGiuZfQ6SzztFT8s6CinGxca/nCo99PkrdWS7XCHA+eKQ4SyUiSrau+mEcoZQnjyOt14Lj2PKW8FG7z11dHb4+Rt+kw42KZNKTh9YYmclYSRTVjClVMvHBmq5LhUqKWM76fKQZJtBw0iSbkC2rwZ83yaUJ097+VSC5PhYyE985afT73z9TztCASe+/osxxrkTE2wTd+5rb5ebX5lsTQpeZOxFxK7jwpe4beLtIuX3FyenNMQmkz05RYDpAqMP6wO0K/KSAdcQGar5Qvcumzwo8VNQ728Z6obd45w3ZB1AmV9Vepexi0Z6QIfK81Ki6uDPTzxXaTnjBFvyjbhgXbbiYJMG63g/c++sp8MPWyWvHvjH9GOTBxxYKpm2NxuONilDLDB2HG9Y5ICwJVm/BUQtSbrgkdYvMTZ+dFLHb52bePZn7snEbWu2SVq47coBtmKmHPIh4jA7/LBJue9hcAMIjH0ENdrEYT7cjj6T7ITHYfnxLhB0Fmyi7Wuc+OrPpz3s1jZJD118W8Ysr9pH1NAKv6iLHk7Bjv9xEfD7F+xiq7ixyS+v0Y2dPjBImfwAGYCblEuG5hM4DuVjNhHJWXfMstd1jk58539ay1CpWPxMFCyEKlb/h6nkLUbvFo6oCl1XdRFCusAgZZpMM4AOUgZbk8le2VEg567q1VGx8cMv6YhZHp04/x/OdfmRoU3WQ9+6ISMxmnFVcScZuxm99R1QMgo7NplIuT9Iutqpky05G+iKU4atkabnEDgOFXGTepG1qOWJC/8ZZDKYPfzd/7Vtz9K2HFcVC/VF9//P3D11ZEyDSq4d+D7FJqcNJMc3OWYzAr/NI7N9dPpFwSWfwouhsPHGYzrMNbM9yHB7s4lgSwiq2C8aYz7LeZMJHcAwXdBkmhF4kjIsc+YzQsxzSYhZA9HkQpgMbPPC8PM3qkxs51n2JGLWUxV3vnYeu/kXNCSuIVLOLsh0kRH4brOGXXjTGUmHmISY+0E0xw9f+mU7ZtlNrN1E3FMVt14qp+76BP8U8jWv7n/pJt3YBIJmBOa+gBR905Bj1fQqD3OQ1jASNq7+TbVPKwLHhFFSrRFxVLFXwiLr4+jbS0klZxvo8f4EPQiVkAj2yY/5lGkyCcWYTpF+EI5t7x3+3o1NIWOW3WTMwqti93nWJzhjuJzc3P/iTQqn6hOQatoRKWcEobPEgWqeh849bai9ORfTudUPUh49vPSrlgNHjVlm0VWx+7xde0klE7pApJwRRE7dCeS8BGVhDgFBrxqkoAtR1fLGyl834DekDXsC2bd0sx2z7EfMfqq447UMn9rFGP8YOinTTrD+I2k19lEdKQsI+EiUTxmqDixBouwhIOkTYINeASchdmn/XuiV39gP/VCD6nW2zAMeqjgwlpl1HrPuQ0+RXdv/DzcpxrX/wOgD7FQFBA1AvYOBpMtQ52seSsOMueqhqaSti7CjO/yWv9CPLea5w5d/3bpRnCiMCKq4+++CWfimC1LJZgDDrhx5FUnQjq4YdB2VR3wBhK2S9phSeBGTEOOmOeybWt53+WZVCFaPooq3X8viq4Lxj3PGd3d9flKQg88MYGz+iOtzIaQI/Fs4IiBlqJzBF4EUMXI15KT9DD47CorIye/DYObwld8M3Tr5mYatlp3E3ML1n13vxfYheLEL33Sxsv8KxSYbAqx85/JeK5lUDUgjaho3zeSRqo986D7Qd1J2ALsIZYL7EhIxj0W1w2289mj1oUdfr2mo0tEL82AmkDHLndUS3AqZdZOxBLdk1IWl/hUDpJINgbw/OOerCPdGDkJHpwcgQVEBKZywCzIpGlL5vNvuA6maL0Ki38urfpgwbLsyONRWvWzFwlbGojuTHAMH314Luzfr+y5TbLJhwOoPKTrKZF82E8aRcgyTAzb6Qcr5wy/+n7PtWonCcMi4t5Nv1/3oXUmEbB4w+4SI2VAE3smyw2RSeWlSgBzG2ko0qd/Zz6baePUv+xGzXL/1+B/Yk9H+l24WhRDNIFXsfs9389YuPlxQ1IVhAHMDZg5wScxVacpI8iHAEwXghwYUoyhpqBY0EPAlZeioTShwOgP2E7VE06ImAjXBO5y2Wu4kQKeG3/b7wIiM3UP4scn7XqDYZEOBXYRCZhK8BiQaSWwBGS8CT1wCfsjBZ84oBSlIjUeA590MhHytR7UDWeR0E5OcYWY9j/FZSbDxykLaMcvuZWmLpEOo5NaGEVLJgwIw7+nI3DgDYqsKqtczhzMQ8SxkZdyE+zWIJ46DmQQjJ/RAoIuUofHC2q5y0Cmy+nQROisyQcsZGqIulrEaHcHrmpZart06+ZkOVXrg5bVWnmXWO07Z+qTF+B5UUm6SPdl46DQL5EH1yso+AkwRjulSjrp7UHF+LkKJqjwRc3h0hMQBoZZj1gObg4f8nBoEu28GxFeOwW6WaQ0haBjJktKKWfYmfzVmmXXHKYu2gw9dJZf2LVFsssmQaplz/kJK43MUqVhCDohZhqlRgqsAtEk5ISG7kVeIth/miMSxibdfnquOP3a1rqF6hxt+A7Rok7JCxu0oDIBMPrQ7ZzGxlcr1EMzCIuwG1T0+MZEDOzMjYvaHar4o9WHThC5gdbhu2+rqrSc+66lKD7yyJnf42VEgHZWuHQgtYXD1fd+7oSXYnoALpWRbFrGcsITbjoZ9V0MDYexOMQEVxC2kum2rgZ8vBCuKgCiM3fvRSZlulAwB/CYXMnr5c+CH0hmZkUkznAUhLXMGXAsW0EKGbr/0yKbmmOVAUh55da0VBeJWyXIi3cOp5BPBqQqEGbucJuZ0bmDJan4PCylPqymoaNjrrkstr9wq/GHvmVwoRKko5T0H0FVyZfi7N0wbCxQrHQ6FjFSe98KYpqooptcUddA1xi0wuC/07ZLw0IyZ3D4Qt1/8i6KmDg5L9sVupSzYrgd2vOmibsCW+0wA7MvTGSTmJiQN0qFos+Ab8Rzj9p2tEHNWZhcv6Mx6ha2Wm7dO/1Gozxx5bQ2qbW9nwJeEjFzyycTYZHI4RoBCzDo2luhAE+5ZXWIgC7H2nmO8LbegcaYzSswLmu1H2FEY0QaM7BtFLe/Ztwv5clhp+Ds3THOKYG8n3vGA+pnTGbAx14GQdd2zWdkA5TnGO9bA0EhjGVoGycY/pjvm8faVP68il66Ker3t82Vs8q7cjjddrJDpIj6g6rypK1/pOJ/SLaIykCvad4x33d0w205lINSmkkLnqsBSy/VbZ/840tJ8ZHm9FbMsY5PxVXJ9+HmjYpObVLIoOZSVrynmDNmvp6HIsk7CrEFEiskIHOO+kgt+2DEDbVRNMFdMp6ymsJZDsT5HMFaU1os9B9BJ2bTkQ7pvWl0wLvxKChYwZ/RbNUtziizPpnusNTOyoaY9xiHvzyI87BSqgetgpVNPGEDOdVDvY/3Yonn78uexYpZjXfvB4nrJ2ss/1JA32RTbmzPZZtXBZ2xmPbhfxuD+SZOcJRkfgiLJuifapmY7NQa8xnhByRM0JUk6lHESKlA75LyScseuwg8ZgyrY/VRRSQms8s6TfxJ70PDd/CcJv9+NlaHnjIhNrmn2xOvGguk2cDBLyvtnCJSzLr9RE6rTO2ScRrtUQKyZTMh+Y7ykJGazJ89IHiMg53no2M9B42N3bg0+V37+MNigjLhZby/9WTGBZ7ue1Fb6u+bW41v/L36X5DMUVAyw3daB0NL0DWDCUT6Zmkzk9YLf6JC08yKsANv3rOQGIUQhJTKuKaZMU01evcb4LITGyccZO0e9EMLjvOgAe8gQsD6D517bJx0ZLy+2kZWl6/jZN6eYZc0yy5I/nHH5bPFWSWn5DMeV501m8dI7T59IPHAa5yZHrT1sSTA+3MpU1LnTTyjHRKtU1Kb1MbZpZ5KTx7fs46Whi29rI0HO+ZIyDrp+AvS3EWXuIcdvHNNDCX7DjokSgbaYUnbZee20c/rPea5iEyJUivaDbG/5vVIg9m38YI1xaHNn01tVCFH6PfOaTAYFpen8AAAAAElFTkSuQmCC">                                                                                
+                            <img style="height:50px; width:120px; margin-right:5px; margin-top:0px" class="img-responsive images rounded float-right" src="images/mc-verified.png">
+                            
+                          </div>
+							<br/><br/><br/><br/>
+							  <div>  
+                            <h4 class="text-center">Authentification d'achat</h4>
+                            <div style="margin-top:1.5rem;;" class="col nopadding text-info text-center">
+								<h6>Un code de vérification à usage unique est requis pour cet achat. Ce mot de passe a été envoyé à votre numéro de mobile</h6>
+						    </div>  
+						     </div>
+                    </div>
+                    <!-- END HEADER PANEL --> 
+                                       
+                   <!-- BODY PANEL -->                     
+                   <div class="card-body card-custom" v-show="!isHidden">
+                              
+                            <div class="row">                           
+                               <div class="col-6"><b class="float-right" for="merchant">Commerçant : </b></div>
+                               <div class="col-6 nopadding"> <p class="pull-left">ALBALSAMI GENERAL TRADING LLC</p></div>
+                            </div>
+                            
+							<div class="row">                                 
+                              <div class="col-6"><b class="float-right" for="amount">Montant : </b></div>
+                              <div class="col-6 nopadding"> <p class="pull-left">1346.00 AED</p> </div>   
+                            </div>
+                            
+                            <div class="row">
+                              <div class="col-6"><b class="float-right" for="datetransaction">Date : </b></div>
+                              <div class="col-6 nopadding"><p class="pull-left">23/09/2024 01:40:41</p></div>    
+                            </div>
+                            
+                            <div class="row">
+                               <div class="col-6"><b class="float-right" for="cardnumber">Numéro de carte : </b></div>
+                               <div class="col-6 nopadding"><p class="pull-left">528578******2103</p></div>    
+                            </div>
+                              
+                            <div class="row">                             
+                               <div class="col-6 "><b class="float-right" for="accountGsm">Téléphone : </b></div>
+                               <div class="col-6 nopadding"><p  class="pull-left">**********4792</p></div>    
+                            </div>
+
+							
+								<div class="col-lg-10 mx-auto">
+									<div class="input-group">
+											<div class="input-group-prepend">
+											  <span class="input-group-text" id="inputGroup-sizing-default">OTP : </span>
+											</div>
+											<input id="paiementCode" name="paiementCode" type="text" class="form-control" 
+										    id="paiementCode" placeholder="Code de vérification" maxlength="6"  autocomplete="off"
+										    v-on:keypress="isNumber($event)" v-model='terms'>
+										</div>
+              						
+										<input
+										id="csrfToken" type="hidden" class="form-control"
+										name="csrfToken" value="b28b967f-7933-11ef-a2d9-cdb11c3278d2">
+									</div>
+								</div>
+                    <!-- END BODY PANEL --> 
+        						
+					<div class="card-body card-custom" style="text-align: center;" v-if="isHidden">
+							<div class="spinner-border" style="width: 5rem; height: 5rem;" role="status">
+			        	        <span class="sr-only">Chargement...</span>
+			              </div>
+					</div>
+								
+                    <!-- FOOTER PANEL -->      
+					<div class="card-footer card-custom">
+							<div class="col-xs-12" style="text-align: center;">
+								<button id="validateAction" type="submit" class="btn btn-success" name="action"
+									value="validate" v-show="!isHidden"  :disabled='isDisabled'>Valider</button>
+								<button type="submit" v-show="!isHidden" class="btn btn-danger" name="action"
+									value="cancel">Annuler</button>
+							</div>
+						    <div style="margin-top:10px;" class="col-xs-12 col-md-12 text-info text-center">
+								<h6>Les informations ne seront pas partagées avec le commerçant</h6>
+							</div>						    
+						    
+					</div>
+					<!-- END FOOTER PANEL --> 
+						                     
+				  
+                </div>
+                <!-- END PANEL -->  
+             </form>
+            </div>
+            <!-- END FORM -->  
+        </div>
+    </div>
+</div>
+<script src="resources/vue.js"></script>
+<script src="resources/scripts.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c75cc5fc93774d8',t:'MTcyNzA0NDg0NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

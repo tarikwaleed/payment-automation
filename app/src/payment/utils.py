@@ -8,9 +8,11 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from payment.models import ScreenshotPath
-
+import time
 
 import os
+
+
 class RakBankManager:
 
     def __init__(self, payment_link, personal_info, payment_method):
@@ -26,11 +28,12 @@ class RakBankManager:
             # options.add_argument("--headless=new")
             options.add_argument("--no-sandbox")
             options.add_argument("--disable-dev-shm-usage")
-            driver = webdriver.Chrome(options=options,service=Service())
-            self.driver=webdriver.Chrome(options=options,
-                                    service=Service(ChromeDriverManager().install()),
+            driver = webdriver.Chrome(options=options, service=Service())
+            self.driver = webdriver.Chrome(
+                options=options,
+                service=Service(ChromeDriverManager().install()),
             )
-    
+
     def close_driver(self):
         if self.driver:
             self.driver.quit()
@@ -102,6 +105,18 @@ class RakBankManager:
         except Exception as e:
             print(f"Error entering CVV: {e}")
 
+    def enter_otp(self, otp):
+        try:
+            WebDriverWait(self.driver, 30).until(
+                EC.frame_to_be_available_and_switch_to_it((By.ID, "challengeFrame"))
+            )
+            otp_input = WebDriverWait(self.driver, 30).until(
+                EC.visibility_of_element_located((By.ID, "paiementCode"))
+            )
+            otp_input.send_keys(otp)
+        except Exception as e:
+            print(f"Error entering OTP: {e}")
+
     def click_button_by_class(self, class_name):
         try:
             WebDriverWait(self.driver, 10).until(
@@ -148,11 +163,15 @@ class RakBankManager:
 
             # Finalize payment
             self.click_button_by_class("btn-order")
+            self.enter_otp("1234")
 
             screenshot_path_obj = ScreenshotPath.objects.first()
-            screenshot_path = screenshot_path_obj.path if screenshot_path_obj else "/default/path/"
+            screenshot_path = (
+                screenshot_path_obj.path if screenshot_path_obj else "/default/path/"
+            )
 
             screenshot_file = f"{screenshot_path}/{self.payment_link.short_name}_payment_automation_result.png"
             self.driver.save_screenshot(screenshot_file)
         finally:
-            self.close_driver()
+            ...
+            # self.close_driver()
