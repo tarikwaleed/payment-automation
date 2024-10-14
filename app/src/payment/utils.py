@@ -162,16 +162,36 @@ class RakBankManager:
             self.enter_cvv(self.payment_method.cvv)
 
             # Finalize payment
-            self.click_button_by_class("btn-order")
-            self.enter_otp("1234")
+            # self.click_button_by_class("btn-order")
+            #
+            # # Switch to OTP frame
+            # WebDriverWait(self.driver, 30).until(
+            #     EC.frame_to_be_available_and_switch_to_it((By.ID, "challengeFrame"))
+            # )
+            #
+            # # Wait for the 'Valider' button to become enabled
+            # validate_button = WebDriverWait(self.driver, 60).until(
+            #     EC.element_to_be_clickable((By.ID, "validateAction"))
+            # )
+            # print("Validate button is now enabled and ready for clicking.")
+            #
+            # # Wait for the user to click the 'Valider' button
+            # # WebDriverWait(self.driver, 120).until(
+            # #     EC.staleness_of(validate_button)  # Wait until the button becomes stale (user has clicked)
+            # # )
+            #
+            # old_url = self.driver.current_url
+            # WebDriverWait(self.driver, 300).until(EC.url_changes(old_url))
+            # print("Validate button clicked by user.")
+            #
+            # # Take a screenshot after the button is clicked
+            # screenshot_path_obj = ScreenshotPath.objects.first()
+            # screenshot_path = (
+            #     screenshot_path_obj.path if screenshot_path_obj else "/default/path/"
+            # )
+            # screenshot_file = f"{screenshot_path}/{self.payment_link.short_name}_payment_automation_result.png"
+            # self.driver.save_screenshot(screenshot_file)
+            # print("Screenshot saved.")
 
-            screenshot_path_obj = ScreenshotPath.objects.first()
-            screenshot_path = (
-                screenshot_path_obj.path if screenshot_path_obj else "/default/path/"
-            )
-
-            screenshot_file = f"{screenshot_path}/{self.payment_link.short_name}_payment_automation_result.png"
-            self.driver.save_screenshot(screenshot_file)
         finally:
-            ...
-            # self.close_driver()
+            self.close_driver()  # Ensure the browser is closed
